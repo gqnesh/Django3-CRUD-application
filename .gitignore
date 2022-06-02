@@ -1,0 +1,5 @@
+# Ignore this file
+
+db.sqlite3
+migrations
+_pycache_

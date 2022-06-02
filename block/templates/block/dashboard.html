@@ -1,0 +1,71 @@
+{% extends 'block/base.html' %}
+{% load static %}
+{% block title %}
+    SignIn
+{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+{% endblock css %}
+
+
+{% block content %}
+
+    <!-- <div class="container" style="font-family: 'Courgette', cursive;">
+        <h3 class="display-4 text-center my-3 text-light">Dashboard</h3>
+    </div> -->
+
+    <div class="container bg-light text-center my-3 " style="font-family: 'Courgette', cursive; border-radius: 10px;">
+        <h3 class="display-5">Show Post Information</h3>
+    </div>
+
+    <div class="container d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="/addpost/" class="btn btn-outline-light me-md-2" type="button">Add Post</a>
+    </div>
+
+    <div class="container my-3">
+        <div class="align-items-md-stretch">
+            <div class="text-center">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    {% for data in info %}
+                        <h2 class="mb-4">{{data.title}}</h2>
+                        <p>{{data.desc}}</p>
+                        <a href="/editpost/{{data.id}}/" class="btn btn-outline-light mb-3" type="button">Edit Post</a>
+
+                        {% if prem.block.deletepost %}
+                        <a href="/deletepost/{{data.id}}/" class="btn btn-outline-light mb-3" type="button">Delete</a>
+                        {% endif %}
+
+                        <hr class="text-light mb-3">
+                    {% endfor %}
+                </div>
+            </div>        
+        </div>
+    </div>
+{% endblock content %}
+
+
+
+    <!-- <div class="container my-3">
+        <div class="row">
+
+            {% for data in info %}
+            <div class="col-6 p-3">
+              <div class="card">
+                <div class="align-items-md-stretch">
+                    <div class="card-body h-100 p-5 text-white bg-dark rounded-3"> 
+                        <h2 class="mb-4  text-center">{{data.title}}</h2>
+                        <p>{{data.desc}}</p>
+                        <a href="/editpost/{{data.id}}/" class="btn btn-outline-light mb-3" type="button">Edit Post</a>
+
+                        {% if prem.block.deletepost %}
+                        <a href="/deletepost/{{data.id}}/" class="btn btn-outline-light mb-3" type="button">Delete</a>
+                        {% endif %}
+
+                        <hr class="text-light mb-3">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> -->

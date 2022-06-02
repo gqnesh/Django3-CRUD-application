@@ -1,0 +1,17 @@
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+#introCarousel {
+    margin-top: 30px;
+    }
+            
+#introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+    height: 60vh;
+    }
+}
+  
+.carousel-inner{
+    box-shadow: 20px 20px 25px 
+}

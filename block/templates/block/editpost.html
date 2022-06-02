@@ -1,0 +1,55 @@
+{% extends 'block/base.html' %}
+{% load static %}
+{% block title %}
+    Edit Post
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+
+{% block content %}
+    <div class="container col-sm-10 bg-light my-3" style="border-radius: 7px;">
+        <h3 class="display-5 text-center" style="font-family: 'Courgette', cursive; border-radius: 10px;">Edit Post</h3>
+    </div>
+
+    <section class="">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-10">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+            
+                            <div class="pb-4">
+                
+                                <p class="text-white-50 mb-4 fw-bold">Add new title or description in post !</p>
+                                {% for data in info %}                       
+                                <form action="/editpost/{{data.id}}/" method="post">
+                                
+                                    {% csrf_token %}
+                                    
+                                    <div class="form-outline form-white mb-4">
+                                        <textarea type="text" id="" class="form-control form-control-lg bg-dark text-light" placeholder="Title" name="Etitle" rows="1">{{data.title}}</textarea>
+                                    </div>
+                        
+                                    <div class="form-outline form-white mb-4">
+                                        <textarea class="form-control form-control-lg bg-dark text-light" placeholder="Description" name="Edesc" id="" cols="30" rows="7">{{data.desc}}</textarea>
+                                    </div>
+
+                                    <button class="btn btn-light btn-lg px-4 me-4" type="submit">Edit</button>
+                                    <a href="/dashboard/" class="btn btn-danger btn-lg px-4" type="Cancel">Cancel</a>
+
+                                </form>
+                                {% endfor %}
+                
+                            </div>
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
